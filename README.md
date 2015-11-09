@@ -21,7 +21,7 @@ localhost:8080/api/setLights/` with the following params
 
 ---------------------------------------------------------
 
-#####Snoozing: 
+#####Later: 
 	* Set more than one light at a time
 	* init state of index.html checkbox by querying light states
 	* serial communicationz 
