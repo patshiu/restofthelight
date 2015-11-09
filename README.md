@@ -17,3 +17,9 @@ HTTP *POST* `
 localhost:8080/api/setLights/` with the following params
 	* `lightID` - from 1 to 16
 	* `state` - `1` or `0`
+
+
+#####Snoozing: 
+	* Set more than one light at a time
+	* init state of index.html checkbox by querying light states
+	* serial communicationz 
