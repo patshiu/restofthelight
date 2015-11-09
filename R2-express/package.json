@@ -1,0 +1,11 @@
+{
+  "name": "restToSerial",
+  "version": "0.6.0",
+  "author": {
+    "name": "Pat Shiu"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "serialport": "1.4.x",
+  }
+}
