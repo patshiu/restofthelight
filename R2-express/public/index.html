@@ -16,7 +16,7 @@
 			console.log("Light state change requested on Light: " + id + " State to " + s );
 			var http = new XMLHttpRequest(); 
 			var url = "http://localhost:8080/api/setLights/"
-			var params = "lightID=" + id + "&state=" + state;
+			var params = "lightID=" + id + "&state=" + s;
 			console.log("sending these params: " + params);
 			http.open("POST", url, true);
 
@@ -30,7 +30,7 @@
 			//         alert(http.responseText);
 			//     }
 			// }
-			http.send();
+			http.send(params);
 		}
 	 </script>
 	 <link rel="stylesheet" type="text/css" href="css/style.css">
