@@ -10,18 +10,72 @@
 				// close the request:
 				request.send( null );
 		}
+
+		function setState(id, state){
+			var s = (state ? 1 : 0); 
+			console.log("Light state change requested on Light: " + id + " State to " + s );
+			var http = new XMLHttpRequest(); 
+			var url = "http://localhost:8080/api/setLights/"
+			var params = "lightID=" + id + "&state=" + state;
+			console.log("sending these params: " + params);
+			http.open("POST", url, true);
+
+			//Send the proper header information along with the request
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			// http.setRequestHeader("Content-length", params.length);
+			// http.setRequestHeader("Connection", "close");
+
+			// http.onreadystatechange = function() {//Call a function when the state changes.
+			//     if(http.readyState == 4 && http.status == 200) {
+			//         alert(http.responseText);
+			//     }
+			// }
+			http.send();
+		}
 	 </script>
-	 
-    <style>
-    	#r{color:#cc0000;}    	
-    	#g{color:#00cc00;}	
-    	#b{color:#0000cc;}
-    </style>
+	 <link rel="stylesheet" type="text/css" href="css/style.css">
+	 <style></style>
 	 </head>
 	<body>
+
+	<!-- button Matrix -->
+
+	<table class="tabulaLuma">
+		<tbody>
+			<!-- ROW 1 -->
+			<tr>
+				<td><input type="checkbox" name="1" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="2" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="3" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="4" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+			</tr>
+			<!-- ROW 2 -->
+			<tr>
+				<td><input type="checkbox" name="5" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="6" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="7" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="8" value="isOn" onchange="setState(this.name, this.checked);"></td>
+			</tr>
+			<!-- ROW 3 -->
+			<tr>
+				<td><input type="checkbox" name="9" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="10" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="11" value="isOn" onchange="setState(this.name, this.checked);"></td>
+				<td><input type="checkbox" name="12" value="isOn" onchange="setState(this.name, this.checked);"></td>
+			</tr>
+			<!-- ROW 4 -->
+			<tr>
+				<td><input type="checkbox" name="13" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="14" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="15" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+				<td><input type="checkbox" name="16" value="isOn" onchange="setState(this.name, this.checked);" checked></td>
+			</tr>
+		</tbody>
+	</table>
 		
-	<!-- Slider -->
 	
+	<!-- Slider -->
+<!-- 	
 	<input type="range" id="redSlider" min="0" max="100"  onchange="setColor(this, r);">
 	<input type="text" id="r" size=2><br>
 	
@@ -30,6 +84,6 @@
 	
 	<input type="range" id="blueSlider" min="0" max="100" onchange="setColor(this, b);">
 	<input type="text" id="b" size=2><br>
-	
+	 -->
 	</body>
 </html>

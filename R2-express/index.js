@@ -15,8 +15,9 @@
 var serialport = require("serialport"),		// include the serialport library
 	SerialPort  = serialport.SerialPort,	   // make a local instance of serial
 	express = require('express'),		// include express
-	app = express();
-	bodyParser = require('body-parser')
+	app = express(),
+	bodyParser = require('body-parser'),
+	path = require('path');
 
 
 //FOR TESTING
@@ -34,14 +35,15 @@ var lightID, state;
 
 // respond to web GET requests for the index.html page:
 // respond with "hello world" when a GET request is made to the homepage
-//app.use(express.static('public'));
+app.use(express.static('public'));
 //app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
-app.get('/index.*', function(req, res) {
-  res.send('hello');
+app.get('/index*', function(req, res) {
+	res.type('.html').sendFile(path.join(__dirname + '/public/index.html'));
+	console.log(path.join(__dirname + '/public/index.html'));
 });
 
 app.get('/api/query/:lightID', function(req, res) {
@@ -94,6 +96,8 @@ var reportLights = function (){
 		console.log(lightState[r] + " , " + lightState[r+1] + " , " + lightState[r+2] + " , " + lightState[r+3]);
   }  
 }
+
+
 // // the third word of the command line command is serial port name:
 // var portName = process.argv[2];				  
 // // print out the port you're listening on:
