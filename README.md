@@ -19,7 +19,7 @@ localhost:8080/api/setLights/` with the following params
 	* `state` - `1` or `0`
 
 
-______________________________________
+---------------------------------------
 
 #####Later: 
 	* Set more than one light at a time
