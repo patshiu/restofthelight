@@ -5,7 +5,8 @@
     "name": "Pat Shiu"
   },
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "serialport": "1.4.x",
+    "serialport": "1.4.x"
   }
 }
